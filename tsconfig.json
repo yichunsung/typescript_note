@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+  	"module": "commonjs",
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./build/",
+    "rootDir": "./src",
+    "baseUrl": "./",
+    "suppressImplicitAnyIndexErrors": true,
+    "paths": {
+      "*": ["types/*"]
+    }
+  },
+  "exclude": ["**/*.test.ts", "**/migrations", "./knexfile.ts", "node_modules"]
+}
