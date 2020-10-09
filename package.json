@@ -4,10 +4,13 @@
   "description": "",
   "main": "try.js",
   "scripts": {
-  	"build": "tsc",
-  	"start": "npm run build && node ./build/try.js",
+    "build": "tsc",
+    "start": "npm run build && node ./build/try.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  }
 }
