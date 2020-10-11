@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+
 const start: string = '---- Start Print ----';
 const end: string = '---- End Print ----';
 
@@ -17,7 +19,10 @@ function Tryshow(log: string = 'Joe') {
 		// console.log('is Log print?', log);
 		// let a = new target(data);
 		// a.run();
+		console.log(target);
 		
+		let result = Reflect.getMetadata('cs', target);
+		console.log(result);
 		return class SayHello {
 			public name;
 			public constructor(name) {
@@ -38,12 +43,18 @@ function Tryshow(log: string = 'Joe') {
 
 function SlowDisplay () {
 	return function(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-		
+		console.log(target);
+		// Reflect.defineMetadata('cs', 12324, target);
+		let result = Reflect.getMetadata('cs', target);
+		console.log(result);
 	}
 }
 
 function Required (target: any, propertyKey: string) {
 	console.log(target);
+	Reflect.defineMetadata('cs', 12324, target);
+	let result = Reflect.getMetadata('cs', target);
+	console.log(result);
 }
 
 /**
@@ -85,7 +96,9 @@ console.log(end);
  */
 function MyDecorators(target: Function): void {  
   target.prototype.say = function (): void {  
-    console.log("Hello 前端自習課 !");  
+    console.log("Hello 前端自習課 !");
+    let result = Reflect.getMetadata('cs', new Sayhi(data));
+		console.log(result);
   };  
 }  
 
