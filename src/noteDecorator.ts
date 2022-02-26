@@ -29,12 +29,19 @@ const UseMyDecorator = (metaData: number) => {
   }
 }
 
+const IsType = (type) => {
+  return (target: any, propertyKey: string) => {
+    console.log(propertyKey, type);
+  }
+}
+
 
 @ClassDecorator
 @UseMyDecorator(1234)
 class NewClassTest {
 
   @propertyDecorator
+  @IsType('string')
   userData: string;
 
   @methodsDecorator
@@ -46,7 +53,9 @@ class NewClassTest {
 
 const hello = new NewClassTest();
 
+console.log(hello);
+
 hello.doSomething('Yoho');
 
 const data = Reflect.getMetadata('hello', NewClassTest);
-console.log('data: ', data)
+console.log('data: ', data);
